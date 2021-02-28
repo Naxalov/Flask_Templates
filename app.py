@@ -1,10 +1,59 @@
 from flask import Flask 
+from jinja2 import Template
 app = Flask(__name__)
-html_home = '<h1>Home page</h1>'
+
+
 
 @app.route('/')
 def home():
-    return html_home
+    title = 'Home page'
+    content = 'Home page'
+
+    link = '''
+    <a href='/about'>about</a>
+    <a href='/product'>product</a>
+    <a href='/contact'>contact</a>
+    <a href='/help'>help</a>
+    '''
+    html_tmp = f'''
+    <html>
+    <head>
+        <title>{title}</title>
+    </head>
+    <body>
+       <h1> {content}</h1>
+        {link}
+    </body>
+    </html>
+    '''
+
+    return html_tmp
+
+@app.route('/about')
+def about():
+    title = 'about page'
+    content = 'about page'
+
+    link = '''
+    <a href='/about'>about</a>
+    <a href='/product'>product</a>
+    <a href='/contact'>contact</a>
+    <a href='/help'>help</a>
+    '''
+    html_tmp = f'''
+    <html>
+    <head>
+        <title>{title}</title>
+    </head>
+    <body>
+       <h1> {content}</h1>
+        {link}
+    </body>
+    </html>
+    '''
+
+    return html_tmp
+
 
 @app.route('/product')
 def product():
@@ -12,10 +61,6 @@ def product():
 
 @app.route('/contact')
 def contact():
-    return html_home
-
-@app.route('/about')
-def about():
     return html_home
 
 @app.route('/help')
