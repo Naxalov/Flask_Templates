@@ -3,18 +3,22 @@ from jinja2 import Template
 import json
 app = Flask(__name__)
 
-country = json.loads(open('country.json').read())
-print(country[0]['abbreviation'])
+country_data = json.loads(open('country.json').read())
 @app.route('/home')
 @app.route('/')
 def home():
-    title = 'Home page'
     content = 'Home page'
-    data = {'name':'Zarif','age':33}
-    img_url = 'uz.png'
 
 
-    return render_template('home.html',title=title,content=content,data=data,img_url=img_url)
+    return render_template('home.html',content=content)
+
+@app.route('/country')
+def country():
+    title = 'Country'
+    content = 'Country page'
+    img_url = country_data[230:240]
+    # print(img_url)
+    return render_template('country.html',title=title,content=content,img_url=img_url)
 
 @app.route('/about')
 def about():
