@@ -3,7 +3,25 @@
     <title>{{ title }}</title>
 </head>
 <body>
-    <h1>Home page</h1>
+
+    <h1> {{content}}</h1>
+
+    <a href='/home'>home</a>
+    <a href='/about'>about</a>
+    <a href='/product'>product</a>
+    <a href='/contact'>contact</a>
+    <a href='/help'>help</a>
+
+    {%if data.age>20 %}
+    <p>{{data.name}}</p>
+    {% else %}
+    <p>NAME</p>
+    {% endif %}
     
+    {% for i in range(10) %}
+    <p>{{i}}</p>
+    {% endfor %}
+
+
 </body>
 </html>
