@@ -1,25 +1,10 @@
-<html>
-<head>
-    <title>{{ title }}</title>
-</head>
-<body>
+{% extends "base.html" %}
 
-    <h1> {{content}}</h1>
-
-    <a href='/home'>home</a>
-    <a href='/country'>country</a>
-    <a href='/about'>about</a>
-    <a href='/product'>product</a>
-    <a href='/contact'>contact</a>
-    <a href='/help'>help</a>
-
-
+{% block body %}
     {% for url in img_url %}
     <p>{{url.country}}</p>
     <p><img src='static/flags/{{url.abbreviation.lower()}}.png' /></p>
     {% endfor %}
     <!-- <img src='static/flags/{{img_url}}'> -->
 
-
-</body>
-</html>
+{% endblock %}
